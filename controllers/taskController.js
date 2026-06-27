@@ -17,6 +17,31 @@ const getAllTasks = (req, res) => {
 
 };
 
+const createTask = (req, res) => {
+
+    const task = req.body;
+
+    taskService.createTask(task, (error, results) => {
+
+        if (error) {
+
+            return res.status(500).json({
+                message: 'Error al crear la tarea',
+                error: error.message
+            });
+
+        }
+
+        res.status(201).json({
+            message: 'Tarea creada correctamente',
+            id: results.insertId
+        });
+
+    });
+
+};
+
 module.exports = {
-    getAllTasks
+    getAllTasks,
+    createTask
 };

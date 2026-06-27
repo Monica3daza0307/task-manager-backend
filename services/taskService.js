@@ -1,17 +1,14 @@
-const db = require('../config/db');
+const taskModel = require('../models/taskModel');
 
 const getAllTasks = (callback) => {
-    const sql = 'SELECT * FROM tasks';
+    taskModel.getAllTasks(callback);
+};
 
-    db.query(sql, (error, results) => {
-        if (error) {
-            return callback(error, null);
-        }
-
-        callback(null, results);
-    });
+const createTask = (task, callback) => {
+    taskModel.createTask(task, callback);
 };
 
 module.exports = {
-    getAllTasks
+    getAllTasks,
+    createTask
 };
