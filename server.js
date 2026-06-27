@@ -1,14 +1,12 @@
-const express = require('express');
 require('dotenv').config();
 
-const app = express();
+const app = require('./app');
 
-const PORT = process.env.PORT;
+// Conectar con la base de datos
+require('./config/db');
 
-app.get('/', (req, res) => {
-    res.send('¡Servidor funcionando correctamente!');
-});
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+    console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
 });
