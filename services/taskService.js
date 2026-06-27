@@ -8,7 +8,21 @@ const createTask = (task, callback) => {
     taskModel.createTask(task, callback);
 };
 
+const updateTask = (id, task, callback) => {
+
+    taskModel.updateTask(id, task, callback);
+
+};
+
+const deleteTask = (id, callback) => {
+
+    taskModel.deleteTask(id, callback);
+
+};
+
 module.exports = {
     getAllTasks,
-    createTask
+    createTask,
+    updateTask,
+    deleteTask
 };
