@@ -114,7 +114,7 @@ Ejemplo:
 ```env
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=tu_password
+DB_PASSWORD=
 DB_NAME=task_manager
 PORT=3000
 ```
