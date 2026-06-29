@@ -9,15 +9,11 @@ const createTask = (task, callback) => {
 };
 
 const updateTask = (id, task, callback) => {
-
     taskModel.updateTask(id, task, callback);
-
 };
 
 const deleteTask = (id, callback) => {
-
     taskModel.deleteTask(id, callback);
-
 };
 
 module.exports = {
