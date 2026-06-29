@@ -219,7 +219,77 @@ La API fue validada utilizando **Postman**, verificando correctamente todas las 
 
 ---
 
-# 📷 Capturas de pantalla
+# � Ejecución con Docker
+
+El proyecto puede ejecutarse completamente containerizado utilizando Docker Compose.
+
+## Requisitos previos
+
+* Docker instalado ([descargar](https://www.docker.com/products/docker-desktop))
+* Docker Compose (incluido en Docker Desktop)
+
+## Ejecutar con Docker Compose
+
+Desde la raíz del proyecto, ejecutar:
+
+```bash
+docker compose up --build
+```
+
+Este comando:
+
+* Construye las imágenes del Backend y Frontend.
+* Inicia MySQL con la base de datos `task_manager`.
+* Ejecuta automáticamente el script `database.sql`.
+* Inicia el Backend en el puerto `3000`.
+* Inicia el Frontend en el puerto `4200`.
+* Establece una red interna para la comunicación entre servicios.
+
+## Detener los servicios
+
+Para detener los contenedores, ejecutar:
+
+```bash
+docker compose down
+```
+
+Para eliminar volúmenes (base de datos):
+
+```bash
+docker compose down -v
+```
+
+## Arquitectura Docker
+
+### Servicios
+
+* **MySQL**: Base de datos con volumen persistente.
+* **Backend**: API REST con Node.js y Express.
+* **Frontend**: Aplicación Angular compilada servida por http-server.
+
+### Puertos
+
+| Servicio | Puerto | URL                     |
+| -------- | ------ | ----------------------- |
+| Backend  | 3000   | http://localhost:3000   |
+| Frontend | 4200   | http://localhost:4200   |
+| MySQL    | 3306   | localhost:3306          |
+
+### Variables de entorno
+
+Las variables de entorno se encuentran configuradas automáticamente en `docker-compose.yml`:
+
+```env
+DB_HOST=mysql
+DB_USER=root
+DB_PASSWORD=root_password
+DB_NAME=task_manager
+PORT=3000
+```
+
+---
+
+# �📷 Capturas de pantalla
 
 > capturas del funcionamiento del backend y de las pruebas realizadas en Postman.
 
